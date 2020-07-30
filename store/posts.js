@@ -14,7 +14,7 @@ export const mutations = {
 
 export const actions = {
   async getPosts({ commit }) {
-    const res = await this.$axios.get('http://localhost:8080/posts')
+    const res = await this.$axios.get('/posts')
     await commit('GET_POSTS', res.data)
   },
 
@@ -24,11 +24,11 @@ export const actions = {
       content: post.content,
       timestamp: new Date(),
     }
-    await this.$axios.post('http://localhost:8080/posts', data)
+    await this.$axios.post('/posts', data)
   },
 
   async deletePost({ commit }, post) {
-    await this.$axios.delete(`http://localhost:8080/posts/${post.id}`)
+    await this.$axios.delete(`/posts/${post.id}`)
     await commit('DELETE_POST', post)
   },
 }
