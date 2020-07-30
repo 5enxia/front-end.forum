@@ -17,8 +17,3 @@
     </v-btn>
   </v-app-bar>
 </template>
-
-<script>
-export default {
-}
-</script>

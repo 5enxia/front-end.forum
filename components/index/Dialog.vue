@@ -49,6 +49,7 @@ export default {
     ...mapActions({
       getPosts: 'posts/getPosts',
       postPost: 'posts/postPost',
+      setMessage: 'snackbar/setMessage',
     }),
 
     async addPost(post) {
@@ -56,6 +57,7 @@ export default {
       await this.getPosts()
       this.$data.dialog = false
       this.$data.post.content = ''
+      this.setMessage('投稿しました')
     },
   },
 }

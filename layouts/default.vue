@@ -1,23 +1,23 @@
 <template>
   <v-app>
     <GlobalHeader />
-    <!-- <GlobalDrawer /> -->
     <v-main>
       <v-container>
         <nuxt />
+        <SnackBar />
       </v-container>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import GlobalHeader from '@/components/GlobalHeader';
-// import GlobalDrawer from '@/components/GlobalDrawer';
+import GlobalHeader from '@/components/GlobalHeader'
+import SnackBar from '@/components/SnackBar'
 
 export default {
   components: {
     GlobalHeader,
-    // GlobalDrawer,
+    SnackBar,
   },
 }
 </script>
