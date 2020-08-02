@@ -54,7 +54,6 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/auth',
   ],
   /*
    ** Axios module configuration
@@ -93,4 +92,7 @@ export default {
    ** Customize the progress-bar color
    */
   // loading: '~/components/loading.vue',
+  router: {
+    middleware: ['auth'],
+  },
 }

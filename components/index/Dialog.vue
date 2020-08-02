@@ -9,8 +9,8 @@
       <v-card>
         <v-card-title class="headline">新規投稿</v-card-title>
         <v-card-text>
-          <v-text-field v-model="post.username" type="text" label="ユーザ名" />
-          <v-textarea v-model="post.content" label="投稿内容" />
+          <!-- <v-text-field v-model="post.username" type="text" label="ユーザ名" /> -->
+          <v-textarea v-model="content" label="投稿内容" />
         </v-card-text>
         <v-divider></v-divider>
         <v-card-actions>
@@ -20,8 +20,8 @@
           </v-btn>
           <v-btn 
             color="primary"
-            :disabled="!post.content"
-            @click="addPost(post)"
+            :disabled="!content"
+            @click="addPost(content)"
           >
             投稿
           </v-btn>
@@ -38,10 +38,7 @@ export default {
   data() {
     return {
       dialog: false,
-      post: {
-        username: '',
-        content: '',
-      },
+      content: '',
     }
   },
 
@@ -52,12 +49,20 @@ export default {
       setMessage: 'snackbar/setMessage',
     }),
 
-    async addPost(post) {
-      await this.postPost(post)
-      await this.getPosts()
-      this.$data.dialog = false
-      this.$data.post.content = ''
-      this.setMessage('投稿しました')
+    async addPost(content) {
+      await this.postPost(content).then((res) => {
+        console.log(res)
+        this.$data.dialog = false
+        this.$data.content = ''
+        this.setMessage('投稿しました')
+        this.getPosts()
+      }).catch(err => {
+        console.log(err)
+        this.$data.dialog = false
+        this.$data.content = ''
+        this.setMessage('投稿に失敗しました')
+        this.getPosts()
+      })
     },
   },
 }

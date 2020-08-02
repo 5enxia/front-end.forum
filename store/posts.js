@@ -14,17 +14,14 @@ export const mutations = {
 
 export const actions = {
   async getPosts({ commit }) {
-    const res = await this.$axios.get('/posts')
-    await commit('GET_POSTS', res.data)
+    const res = await this.$axios.get('/get')
+    console.log(res)
+    await commit('GET_POSTS', res.data.Contents)
   },
 
-  async postPost({ commit }, post) {
-    const data = {
-      username: post.username,
-      content: post.content,
-      timestamp: new Date(),
-    }
-    await this.$axios.post('/posts', data)
+  async postPost({ commit }, content) {
+    this.$axios.defaults.headers.common.Authorization = `Bearer ${localStorage.getItem('auth_token')}`
+    return await this.$axios.post('/post', { Message: content })
   },
 
   async deletePost({ commit }, post) {

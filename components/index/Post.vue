@@ -2,17 +2,17 @@
   <v-card class="mx-auto" min-width="480">
     <v-card-title />
     <v-card-text class="headline font-weight-bold">
-      {{ post.content }}
+      {{ post.Message }}
     </v-card-text>
     <v-list-item class="grow">
       <v-list-item-content>
-        <v-list-item>{{ post.username }}</v-list-item>
-        <v-list-item>{{ formatDate(post.timestamp) }}</v-list-item>
+        <v-list-item>ユーザ：{{ post.UserID }}</v-list-item>
+        <v-list-item>投稿日時：{{ formatDate(post.Timestamp) }}</v-list-item>
       </v-list-item-content>
     </v-list-item>
-    <v-card-actions>
+    <!-- <v-card-actions>
       <v-btn color="red" dark right depressed @click="removePost(post)">削除</v-btn>
-    </v-card-actions>
+    </v-card-actions> -->
   </v-card>
 </template>
 
