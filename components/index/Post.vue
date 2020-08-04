@@ -3,7 +3,7 @@
     <v-card-title>{{post.Message}}</v-card-title>
     <v-card-text>
     <v-card-actions>
-        &#064;{{ post.UserID }}
+        &#064;{{ post.UserName }}
         <v-row align="center" justify="end">
           <span class="subheading mr-2">{{ formatDate(post.Timestamp) }}</span>
         </v-row>
