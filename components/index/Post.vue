@@ -1,18 +1,14 @@
 <template>
-  <v-card class="mx-auto" min-width="480">
-    <v-card-title />
-    <v-card-text class="headline font-weight-bold">
-      {{ post.Message }}
+  <v-card class="mx-auto" width="480">
+    <v-card-title>{{post.Message}}</v-card-title>
+    <v-card-text>
+    <v-card-actions>
+        &#064;{{ post.UserID }}
+        <v-row align="center" justify="end">
+          <span class="subheading mr-2">{{ formatDate(post.Timestamp) }}</span>
+        </v-row>
+      </v-card-actions> 
     </v-card-text>
-    <v-list-item class="grow">
-      <v-list-item-content>
-        <v-list-item>ユーザ：{{ post.UserID }}</v-list-item>
-        <v-list-item>投稿日時：{{ formatDate(post.Timestamp) }}</v-list-item>
-      </v-list-item-content>
-    </v-list-item>
-    <!-- <v-card-actions>
-      <v-btn color="red" dark right depressed @click="removePost(post)">削除</v-btn>
-    </v-card-actions> -->
   </v-card>
 </template>
 

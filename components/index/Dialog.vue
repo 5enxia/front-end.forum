@@ -10,19 +10,15 @@
         <v-card-title class="headline">新規投稿</v-card-title>
         <v-card-text>
           <!-- <v-text-field v-model="post.username" type="text" label="ユーザ名" /> -->
-          <v-textarea v-model="content" label="投稿内容" />
+          <v-textarea v-model="content" label="投稿内容" counter maxlength="140" />
         </v-card-text>
         <v-divider></v-divider>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn @click="dialog = false">
+          <v-btn @click="dialog = false" depressed>
             キャンセル
           </v-btn>
-          <v-btn 
-            color="primary"
-            :disabled="!content"
-            @click="addPost(content)"
-          >
+          <v-btn color="primary":disabled="!content" @click="addPost(content)" depressed>
             投稿
           </v-btn>
         </v-card-actions>

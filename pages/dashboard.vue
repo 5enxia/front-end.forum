@@ -1,7 +1,7 @@
 <template>
   <v-layout column align-center>
     <v-row v-for="(post, index) in posts" :key="`post-${index}`">
-      <v-col cols="12"><Post :post="post" /></v-col>
+      <v-col cols="12"><Post :post="post" :index="index"/></v-col>
     </v-row>
     <Dialog />
   </v-layout>
@@ -28,7 +28,7 @@ export default {
   beforeMount() {
     this.getPosts()
   },
-
+  
   methods: {
     ...mapActions({ getPosts: 'posts/getPosts' }),
   },

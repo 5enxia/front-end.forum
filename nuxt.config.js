@@ -60,7 +60,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: process.env.BASE_URL || 'http://localhost:8080',
+    baseURL: 'http://52.151.56.151:3000',
   },
   /*
    ** vuetify module configuration
@@ -80,6 +80,9 @@ export default {
           error: colors.deepOrange.accent4,
           success: colors.green.accent3,
         },
+        light: {
+          primary: colors.blue.darken2,
+        },
       },
     },
   },
@@ -91,7 +94,7 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  // loading: '~/components/loading.vue',
+  loading: '~/components/loading.vue',
   router: {
     middleware: ['auth'],
   },

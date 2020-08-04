@@ -3,7 +3,7 @@
     <GlobalHeader />
     <v-main>
       <v-container>
-        <nuxt />
+        <nuxt-child />
         <SnackBar />
       </v-container>
     </v-main>

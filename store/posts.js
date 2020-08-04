@@ -1,14 +1,17 @@
 export const state = () => ({
   posts: [],
+  length: 0,
 })
 
 export const mutations = {
   GET_POSTS(state, posts) {
-    state.posts = posts
+    state.posts = posts.reverse()
+    state.length = state.posts.length
   },
 
   DELETE_POST(state, post) {
     state.posts.splice(state.posts.indexOf(post), 1)
+    state.length = state.posts.length
   },
 }
 
@@ -20,7 +23,7 @@ export const actions = {
   },
 
   async postPost({ commit }, content) {
-    this.$axios.defaults.headers.common.Authorization = `Bearer ${localStorage.getItem('auth_token')}`
+    this.$axios.defaults.headers.common.Authorization = `Bearer ${window.localStorage.getItem('auth_token')}`
     return await this.$axios.post('/post', { Message: content })
   },
 
@@ -33,5 +36,8 @@ export const actions = {
 export const getters = {
   posts(state) {
     return state.posts
+  },
+  length(state) {
+    return state.length
   },
 }
