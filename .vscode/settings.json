@@ -1,5 +1,5 @@
 {
   "appService.showBuildDuringDeployPrompt": false,
-  "appService.defaultWebAppToDeploy": "",
+  "appService.defaultWebAppToDeploy": "/subscriptions/b0e042a3-f9da-4f9b-849a-8d0bfcb8b3d2/resourceGroups/5enxia/providers/Microsoft.Web/sites/4forum",
   "appService.deploySubpath": "."
 }
